@@ -5,7 +5,6 @@ import Characters from '../../components/characters/Characters';
 import {
   getCharacters,
   getCharactersLoading,
-  getCharacterserror,
   getCharactersError
 } from '../../selectors/charactersSelectors';
 import { fetchCharacters } from '../../actions/characterActions';
