@@ -4,7 +4,7 @@ import {
   FETCH_CHARACTERS
 } from './characterActions';
 import { JestEnvironment } from '@jest/environment';
-jest.mock('../../services/avatarApi.js', () => ({
+jest.mock('../services/avatarApi.js', () => ({
   getCharacters: () => Promise.resolve([])
 }));
 
@@ -15,11 +15,11 @@ describe('characters actions', () => {
 
     return thunk(dispatch)
       .then(() => {
-        expect(dispatch).toHaveBeenCalledWtih({
+        expect(dispatch).toHaveBeenCalledWith({
           type: FETCH_CHARACTERS_LOADING
         });
 
-        expect(dispatch).toHaveBeenCalledWtih({
+        expect(dispatch).toHaveBeenCalledWith({
           type: FETCH_CHARACTERS,
           payload: []
         });
