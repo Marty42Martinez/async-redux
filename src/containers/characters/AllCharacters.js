@@ -5,15 +5,19 @@ import Characters from '../../components/characters/Characters';
 
 class AllCharacters extends PureComponent {
   static propTypes = {
-
+    fetch: PropTypes.func.isRequired,
+    characters: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.object
   }
 
   componentDidMount() {
-
+    this.props.fetch();
   }
 
   render() {
-    return <Characters />;
+    const { characters } = this.props;
+    return <Characters characters={characters} />;
   }
 }
 
