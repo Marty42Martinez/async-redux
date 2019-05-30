@@ -3,7 +3,7 @@ import {
   FETCH_CHARACTERS_LOADING,
   FETCH_CHARACTERS
 } from './characterActions';
-import { JestEnvironment } from '@jest/environment';
+
 jest.mock('../services/avatarApi.js', () => ({
   getCharacters: () => Promise.resolve([])
 }));
