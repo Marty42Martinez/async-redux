@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 
 class AllCharacters extends PureComponent {
   static propTypes = {
-
+    fetch: PropTypes.func.isRequired,
+    characters: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.object
   }
 
   componentDidMount() {
-
+    this.props.fetch();
   }
 
   render() {
@@ -17,10 +20,23 @@ class AllCharacters extends PureComponent {
       <section></section>
     );
   }
-
 }
 
+const mapStateToProps = state => ({
+  //Selectors called here!
+  characters: '',
+  loading: '',
+  error: ''
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetch() {
+    dispatch(fetchCharacters());
+  }
+});
+
+
 export default connect(
-mapStateToProps,
-mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(AllCharacters);
