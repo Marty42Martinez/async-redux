@@ -1,6 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { fetchQuotes } from '../actions/characterQuoteActions';
+import {
+  getQuotes,
+  getQuotesLoading,
+  getQuotesError
+} from '../selectors/quoteSelectors';
+import Characters from '../components/characters/Characters';
 
 class CharacterQuotes extends PureComponent {
   static propTypes = {
@@ -15,18 +22,16 @@ class CharacterQuotes extends PureComponent {
   }
 
   render() {
-
-    return (
-      <section></section>
-    );
+    const { characterQuotes, loading, error } = this.props;
+    if(loading) return <h1>LOADING!</h1>;
+    return <Characters characters={characterQuotes} />;
   }
 }
 
 const mapStateToProps = state => ({
-  //Selectors called here!
-  characterQuotes: '',
-  loading: '',
-  error: ''
+  characterQuotes: getQuotes(state),
+  loading: getQuotesLoading(state),
+  error: getQuotesError(state)
 });
 
 const mapDispatchToProps = dispatch => ({
