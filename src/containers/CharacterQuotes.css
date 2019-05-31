@@ -2,6 +2,13 @@ body {
   background: teal;
 }
 
+.Loader {
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+}
+
 .Simpsons {
   button {
     height: 60px;

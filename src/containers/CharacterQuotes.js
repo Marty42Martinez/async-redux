@@ -25,7 +25,7 @@ class CharacterQuotes extends PureComponent {
 
   render() {
     const { characterQuotes, loading, error, fetch } = this.props;
-    if(loading) return <h1>LOADING!</h1>;
+    if(loading) return <img className={styles.Loader} src='https://i.imgur.com/N5ZGv1s.gif' />;
     if(error) return <p>error.message</p>;
     return (
       <section className={styles.Simpsons}>
