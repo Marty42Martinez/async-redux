@@ -1,5 +1,5 @@
 import quotesReducer from './quotesReducer';
-import { FETCH_QUOTES, FETCH_QUOTES_PENDING } from '../actions/characterQuoteActions';
+import { FETCH_QUOTES, FETCH_QUOTES_PENDING, FETCH_QUOTES_REJECTED } from '../actions/characterQuoteActions';
 
 describe('Quote reducer testsssssssss', () => {
   it('handles the fetchQuotes action', () => {
@@ -36,6 +36,30 @@ describe('Quote reducer testsssssssss', () => {
       loading: true,
       list: [],
       error: null
+    });
+  });
+  it('handles the fetch_quotes_rejected', () => {
+    const initial = {
+      loading: false,
+      list: [],
+      error: null
+    };
+    const action = {
+      type: FETCH_QUOTES_REJECTED,
+      payload: {
+        status: 404,
+        message: 'bad thing'
+      }
+    };
+  
+    const newState = quotesReducer(initial, action);
+    expect(newState).toEqual({
+      loading: false,
+      list: [],
+      error: {
+        status: 404,
+        message: 'bad thing'
+      }
     });
   });
 });
