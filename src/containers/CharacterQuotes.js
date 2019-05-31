@@ -9,6 +9,7 @@ import {
 } from '../selectors/quoteSelectors';
 import Characters from '../components/characters/Characters';
 import Load from '../components/quotes/Load';
+import styles from './CharacterQuotes.css';
 
 class CharacterQuotes extends PureComponent {
   static propTypes = {
@@ -27,7 +28,7 @@ class CharacterQuotes extends PureComponent {
     if(loading) return <h1>LOADING!</h1>;
     if(error) return <p>error.message</p>;
     return (
-      <section>
+      <section className={styles.Simpsons}>
         <Load fetch={fetch}/>
         <Characters characters={characterQuotes} />
       </section>
