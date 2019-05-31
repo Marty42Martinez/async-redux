@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Character.css';
 
 function Character({ character }) {
   return (
     <>
       <img src={character.image} />
+      <p className={styles.names}>{character.name}</p>
       <p>{character.quote}</p>
-      <p>{character.name}</p>
     </>
   );
 }
