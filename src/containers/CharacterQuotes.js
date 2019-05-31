@@ -8,6 +8,7 @@ import {
   getQuotesError
 } from '../selectors/quoteSelectors';
 import Characters from '../components/characters/Characters';
+import Load from '../components/quotes/Load';
 
 class CharacterQuotes extends PureComponent {
   static propTypes = {
@@ -22,9 +23,15 @@ class CharacterQuotes extends PureComponent {
   }
 
   render() {
-    const { characterQuotes, loading, error } = this.props;
+    const { characterQuotes, loading, error, fetch } = this.props;
     if(loading) return <h1>LOADING!</h1>;
-    return <Characters characters={characterQuotes} />;
+    if(error) return <p>error.message</p>;
+    return (
+      <section>
+        <Load fetch={fetch}/>
+        <Characters characters={characterQuotes} />
+      </section>
+    );
   }
 }
 
