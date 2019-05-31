@@ -1,7 +1,8 @@
 import React from 'react';
+import CharacterQuotes from '../containers/CharacterQuotes';
 
 export default function App() {
   return (
-    <h1>Hello Dev!</h1>
+    <CharacterQuotes />
   );
 }
