@@ -1,0 +1,47 @@
+body {
+  background: teal;
+}
+
+.Loader {
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+}
+
+.Simpsons {
+  button {
+    height: 60px;
+    border-radius: 10%;
+    background: #00cdcd;
+    color: #ffcc44;
+    font-weight: bold;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      width: 300px;
+      border: solid #ffcc44 5px;
+      margin: 5px;
+
+      background: #00cdcd;
+      
+
+      img {
+        height: 200px;
+      }
+
+      
+    }
+  }
+
+}
